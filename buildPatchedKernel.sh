@@ -51,10 +51,10 @@ set -e
 KERNEL_BUILD_VERSION=master
 # Quotes around Jetson Board because the name may have a space, ie "AGX Xavier"
 if [ "$JETSON_BOARD" == "AGX Xavier" ] ; then 
-  L4TTarget="31.1.0"
+  L4TTarget="32.1.0"
   # Test for 31.1.0 first
-  if [ $JETSON_L4T = "31.1.0" ] ; then
-     KERNEL_BUILD_VERSION=vL4T31.1.0
+  if [ $JETSON_L4T = "32.1.0" ] ; then
+     KERNEL_BUILD_VERSION=vL4T32.1.0
   else
    echo ""
    tput setaf 1
@@ -67,21 +67,21 @@ if [ "$JETSON_BOARD" == "AGX Xavier" ] ; then
    echo ""
    echo "There may be versions in the tag/release sections that meet your needs"
    echo ""
-   exit 1
+   #exit 1
   fi
 fi
 
 # If we didn't find a correctly configured TX2 or TX1 exit, we don't know what to do
-if [ $KERNEL_BUILD_VERSION = "master" ] ; then
-   tput setaf 1
-   echo "==== L4T Kernel Version Mismatch! ============="
-   tput sgr0
-    echo "Currently this script works for the Jetson AGX Xavier."
-   echo "This processor appears to be a Jetson $JETSON_BOARD, which does not have a corresponding script"
-   echo ""
-   echo "Exiting"
-   exit 1
-fi
+#if [ $KERNEL_BUILD_VERSION = "master" ] ; then
+   #tput setaf 1
+   #echo "==== L4T Kernel Version Mismatch! ============="
+   #tput sgr0
+    #echo "Currently this script works for the Jetson AGX Xavier."
+   #echo "This processor appears to be a Jetson $JETSON_BOARD, which does not have a corresponding script"
+   #echo ""
+   #echo "Exiting"
+   #exit 1
+#fi
 
 # Is librealsense on the device?
 
